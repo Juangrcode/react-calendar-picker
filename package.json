@@ -1,0 +1,33 @@
+{
+    "name": "react-calendar-picker",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack serve",
+        "build": "webpack"
+    },
+    "keywords": [],
+    "author": "Juan Gonzalez <j3045771061@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "i18next": "^20.3.4",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-i18next": "^11.11.3",
+        "styled-components": "^5.3.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.8",
+        "@babel/preset-env": "^7.14.7",
+        "@babel/preset-react": "^7.14.5",
+        "@types/webpack": "^5.28.0",
+        "babel-loader": "^8.2.2",
+        "html-loader": "^2.1.2",
+        "html-webpack-plugin": "^5.3.2",
+        "webpack": "^5.45.1",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2"
+    }
+}
