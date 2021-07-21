@@ -1,30 +1,20 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
-// import Theme from './theme';
-import Calendar from './Calendar';
-// import GlobalStyle from './globalStyle';
+import Calendar from './components/Calendar';
+import './styles/global.css';
 
-// ReactDOM.render(
-//     <React.Fragment>
-//         <GlobalStyle />
-//         <Theme>
-//             <Calendar />
-//         </Theme>
-//     </React.Fragment>,
-//     document.getElementById('app')
-// );
-
-const GlobalCalendar = () => (
+ReactDOM.render(
     <React.Fragment>
-        {/* <GlobalStyle /> */}
-        {/* <Theme> */}
-
         <Calendar />
-
-        <h2>Holaa</h2>
-        {/* </Theme> */}
-    </React.Fragment>
+    </React.Fragment>,
+    document.getElementById('app')
 );
 
-export default GlobalCalendar;
+// const CalendarPicker = () => (
+//     <React.Fragment>
+//         <Calendar />
+//     </React.Fragment>
+// );
+
+// export default CalendarPicker;

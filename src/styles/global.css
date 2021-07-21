@@ -1,0 +1,82 @@
+:root {
+    /* Colors */
+    --primary-blue: #1c24f2;
+    --mid-blue: #4e55f5;
+    --light-blue: #abb1f4;
+    --color-black: #000000;
+    --color-gray: #b9b9b9;
+    --color-white: #ffffff;
+
+    /* Fonts */
+    --font-fugaz: Fugaz One;
+    --font-normal: Roboto;
+
+    /* Fonts sizes */
+
+    --h1: 5rem;
+    --h2: 3rem;
+    --h3: 2rem;
+    --span: 1.8rem;
+    --placeholder: 1.6rem;
+    --p: 1.4rem;
+    --small: 1rem;
+
+    --bolder: 700;
+    --medium: 500;
+    --normal: 400;
+    --light: 300;
+
+    /* Spacing */
+    --space: 1rem;
+
+    --space-half: 5px;
+    --space-x2: 20px;
+    --space-x3: 30px;
+    --space-x4: 40px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: var(--font-normal);
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-fugaz);
+}
+
+h1 {
+    font-size: var(--h1);
+}
+h2 {
+    font-size: var(--h2);
+}
+h3 {
+    font-size: var(--h3);
+}
+
+span {
+    font-size: var(--span);
+}
+p {
+    font-size: var(--p);
+}
+small {
+    font-size: var(--small);
+}
+
+input::placeholder {
+    font-size: var(--placeholder);
+}

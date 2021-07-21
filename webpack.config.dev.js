@@ -3,20 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        libraryTarget: 'commonjs2',
         publicPath: '/',
     },
     resolve: {
         extensions: ['.js'],
-        alias: {
-            react: path.resolve(__dirname, './node_modules/react'),
-            'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
-        },
     },
     module: {
         rules: [
@@ -29,7 +24,7 @@ module.exports = {
             },
             {
                 test: /\.(css)$/,
-                use: [{ loader: MiniCssExtractPlugin.loader }, 'style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.html$/,
@@ -41,20 +36,6 @@ module.exports = {
             },
         ],
     },
-    externals: {
-        react: {
-            commonjs: 'react',
-            commonjs2: 'react',
-            amd: 'React',
-            root: 'React',
-        },
-        'react-dom': {
-            commonjs: 'react-dom',
-            commonjs2: 'react-dom',
-            amd: 'ReactDOM',
-            root: 'ReactDOM',
-        },
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
@@ -65,4 +46,11 @@ module.exports = {
             chunkFilename: '[id].css',
         }),
     ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        historyApiFallback: true,
+        compress: true,
+        port: 3005,
+        disableHostCheck: true,
+    },
 };

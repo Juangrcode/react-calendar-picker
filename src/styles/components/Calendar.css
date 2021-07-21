@@ -1,0 +1,43 @@
+.calendar {
+    position: relative;
+}
+
+.calendar__select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 324px;
+    min-width: 220px;
+    height: var(--space-x4);
+    color: var(--light-blue);
+    border-radius: var(--space-half);
+    border: 1px solid var(--light-blue);
+    font-size: var(--placeholder);
+    padding: var(--space);
+    padding-left: 12px;
+}
+
+.calendar__picker {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30px 125px;
+    align-items: center;
+    justify-items: center;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    max-width: 324px;
+    min-width: 220px;
+    height: 175px;
+    border-radius: var(--space-half);
+    border: 1px solid var(--light-blue);
+    font-size: var(--placeholder);
+    padding: var(--space);
+}
+
+.calendar__picker--items {
+    width: 100%;
+    transform-style: preserve-3d;
+}
