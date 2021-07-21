@@ -1,18 +1,26 @@
 {
     "name": "react-calendar-picker",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "version": "0.0.1",
+    "description": "react calendar with scroll",
+    "main": "dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "webpack serve",
-        "build": "webpack"
+        "build": "webpack "
     },
-    "keywords": [],
+    "keywords": [
+        "calendar",
+        "node",
+        "npm",
+        "javascript",
+        "react",
+        "dates"
+    ],
     "author": "Juan Gonzalez <j3045771061@gmail.com>",
     "license": "MIT",
     "dependencies": {
         "i18next": "^20.3.4",
+        "intersection-observer": "^0.12.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-i18next": "^11.11.3",
@@ -20,12 +28,21 @@
     },
     "devDependencies": {
         "@babel/core": "^7.14.8",
+        "@babel/plugin-transform-runtime": "^7.14.5",
         "@babel/preset-env": "^7.14.7",
         "@babel/preset-react": "^7.14.5",
+        "@emotion/babel-plugin": "^11.3.0",
         "@types/webpack": "^5.28.0",
         "babel-loader": "^8.2.2",
+        "babel-plugin-emotion": "^11.0.0",
+        "babel-plugin-styled-components": "^1.13.2",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "css-loader": "^6.2.0",
         "html-loader": "^2.1.2",
         "html-webpack-plugin": "^5.3.2",
+        "mini-css-extract-plugin": "^2.1.0",
+        "style-loader": "^3.2.1",
         "webpack": "^5.45.1",
         "webpack-cli": "^4.7.2",
         "webpack-dev-server": "^3.11.2"
