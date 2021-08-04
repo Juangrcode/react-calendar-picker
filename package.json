@@ -2,7 +2,7 @@
     "name": "react-calendar-picker",
     "version": "0.0.4",
     "description": "react calendar with scroll",
-    "main": "./dist/bundle.js",
+    "main": "./dist/Calendar.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "webpack serve --config webpack.config.dev.js",

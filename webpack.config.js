@@ -4,12 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src/components/Calendar.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'Calendar.js',
         libraryTarget: 'commonjs2',
-        publicPath: '/',
     },
     resolve: {
         extensions: ['.js'],
@@ -43,8 +42,18 @@ module.exports = {
     },
 
     externals: {
-        react: 'commonjs react',
-        'react-dom': 'commonjs react-dom',
+        react: {
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'React',
+            root: 'React',
+        },
+        'react-dom': {
+            commonjs: 'react-dom',
+            commonjs2: 'react-dom',
+            amd: 'ReactDOM',
+            root: 'ReactDOM',
+        },
     },
     plugins: [
         // new HtmlWebpackPlugin({
