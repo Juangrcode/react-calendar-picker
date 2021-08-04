@@ -6,15 +6,18 @@ import days from '../data/days.json';
 
 import Carousel from './Carousel';
 import ArrowButton from './ArrowButton';
+import stringToDate from '../utils/stringToDate';
 
 import '../styles/components/Calendar.css';
+import '../styles/global.css';
 
-const Calendar = ({ setState }) => {
-    const dataYears = Object.values(years);
-    const dataMonths = Object.values(months);
-    const dataDays = Object.values(days);
+const Calendar = ({ text = 'Fecha de nacimiento *', setState, arrYears, arrMonths, arrDays }) => {
+    const dataYears = arrYears || Object.values(years);
+    const dataMonths = arrMonths || Object.values(months);
+    const dataDays = arrDays || Object.values(days);
 
     const [stateCalendar, setStateCalendar] = useState(false);
+    const [stateCalendarValue, setStateCalendarValue] = useState(text);
 
     const [stateYear, setStateYear] = useState(1);
     const [stateMonth, setStateMonth] = useState(1);
@@ -53,54 +56,56 @@ const Calendar = ({ setState }) => {
     };
 
     useEffect(() => {
-        console.log({
-            stateDataYear,
-            stateDataMonth,
-            stateDataDay,
-        });
-        setState({
-            year: stateDataYear,
-            month: stateDataMonth,
-            day: stateDataDay,
-        });
+        if (stateDataYear !== 1) {
+            setStateCalendarValue(
+                stringToDate({
+                    year: stateDataYear,
+                    month: stateDataMonth,
+                    day: stateDataDay,
+                })
+            );
+            setState(stateCalendarValue);
+        }
     }, [stateDataYear, stateDataMonth, stateDataDay]);
 
     return (
         <div className="calendar">
-            <button className="calendar__select" onClick={handleClick}>
-                Fecha de nacimiento *
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.99999 0.999999L6.98999 7.67456L12.98 1" stroke="#ABB1F4" strokeWidth="2" strokeMiterlimit="10" />
-                </svg>
-            </button>
-            {stateCalendar && (
-                <div className="calendar__picker">
-                    <h4>AÑO</h4>
-                    <h4>MES</h4>
-                    <h4>DÍA</h4>
-                    <div className="calendar__picker--items">
-                        <ArrowButton onClick={previousYear} disabled={stateYear === 1} />
-                        <Carousel state={stateYear} setStateData={setStateDataYear}>
-                            {dataYears}
-                        </Carousel>
-                        <ArrowButton onClick={nextYear} isDown={true} disabled={dataYears.length - 2 === stateYear} />
+            <div className="calendar__container">
+                <button className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'}`} onClick={handleClick}>
+                    {stateCalendarValue}
+                    <svg width="11" height="8" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.99999 0.999999L6.98999 7.67456L12.98 1" stroke="#000000" strokeWidth="2" strokeMiterlimit="10" />
+                    </svg>
+                </button>
+                {stateCalendar && (
+                    <div className="calendar__picker">
+                        <h4>AÑO</h4>
+                        <h4>MES</h4>
+                        <h4>DÍA</h4>
+                        <div className="calendar__picker--items">
+                            <ArrowButton onClick={previousYear} disabled={stateYear === 1} />
+                            <Carousel state={stateYear} setStateData={setStateDataYear}>
+                                {dataYears}
+                            </Carousel>
+                            <ArrowButton onClick={nextYear} isDown={true} disabled={dataYears.length - 2 === stateYear} />
+                        </div>
+                        <div className="calendar__picker--items">
+                            <ArrowButton onClick={previousMonth} disabled={stateMonth === 1} />
+                            <Carousel state={stateMonth} setStateData={setStateDataMonth} isMonth={true}>
+                                {dataMonths}
+                            </Carousel>
+                            <ArrowButton onClick={nextMonth} isDown={true} disabled={dataMonths.length - 2 === stateMonth} />
+                        </div>
+                        <div className="calendar__picker--items">
+                            <ArrowButton onClick={previousDay} disabled={stateDay === 1} />
+                            <Carousel state={stateDay} setStateData={setStateDataDay}>
+                                {dataDays}
+                            </Carousel>
+                            <ArrowButton onClick={nextDay} isDown={true} disabled={dataDays.length - 2 === stateDay} />
+                        </div>
                     </div>
-                    <div className="calendar__picker--items">
-                        <ArrowButton onClick={previousMonth} disabled={stateMonth === 1} />
-                        <Carousel state={stateMonth} setStateData={setStateDataMonth}>
-                            {dataMonths}
-                        </Carousel>
-                        <ArrowButton onClick={nextMonth} isDown={true} disabled={dataMonths.length - 2 === stateMonth} />
-                    </div>
-                    <div className="calendar__picker--items">
-                        <ArrowButton onClick={previousDay} disabled={stateDay === 1} />
-                        <Carousel state={stateDay} setStateData={setStateDataDay}>
-                            {dataDays}
-                        </Carousel>
-                        <ArrowButton onClick={nextDay} isDown={true} disabled={dataDays.length - 2 === stateDay} />
-                    </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };
