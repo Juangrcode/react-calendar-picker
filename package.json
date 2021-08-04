@@ -1,6 +1,6 @@
 {
     "name": "react-calendar-picker",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "react calendar with scroll",
     "main": "./dist/bundle.js",
     "scripts": {
