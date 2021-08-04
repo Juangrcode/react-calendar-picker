@@ -1,18 +1,15 @@
-.carousel__container {
-    overflow: hidden;
-}
-
 .carousel__container--inner {
-    overflow-y: scroll;
-    scrollbar-width: none;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
-    -ms-overflow-style: none;
-
     margin: 1rem;
     max-height: 102px;
 }
 
-.carousel__container--inner::-webkit-scrollbar {
-    display: none;
+.carousel-item {
+    text-align: center;
+    padding: 5px 0;
+    color: var(--primary-blue);
+}
+
+.small-letter {
+    transform: scale(0.9);
+    color: var(--light-blue);
 }

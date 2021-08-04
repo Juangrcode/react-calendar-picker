@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Calendar from './components/Calendar';
 import './styles/global.css';
+import ThemeContext from './context/ThemeContext';
 
-ReactDOM.render(
-    <React.Fragment>
-        <Calendar />
-    </React.Fragment>,
-    document.getElementById('app')
-);
+// const App = () => {
+//     const [state, setState] = useState({ year: '', month: '', day: '' });
+//     console.log({ state });
+//     return <Calendar setState={setState} />;
+// };
 
-// const CalendarPicker = () => (
-//     <React.Fragment>
-//         <Calendar />
-//     </React.Fragment>
+// ReactDOM.render(
+//     <ThemeContext.Provider>
+//         <App />
+//     </ThemeContext.Provider>,
+//     document.getElementById('app')
 // );
 
-// export default CalendarPicker;
+// const CalendarPicker = () => (
+//     <>
+//
+//     </>
+// );
+
+export default Calendar;

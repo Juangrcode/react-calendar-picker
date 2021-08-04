@@ -1,3 +1,5 @@
+import React, { useRef, useEffect } from 'react';
+
 import '../styles/components/CarouselItem.css';
 
 const CarouselItem = ({ children }) => {

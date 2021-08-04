@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -28,38 +28,29 @@ module.exports = {
                 },
             },
             {
-                test: /\.(css)$/,
-                use: [{ loader: MiniCssExtractPlugin.loader }, 'style-loader', 'css-loader'],
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
-            {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader',
-                    },
-                ],
-            },
+            // {
+            //     test: /\.html$/,
+            //     use: [
+            //         {
+            //             loader: 'html-loader',
+            //         },
+            //     ],
+            // },
         ],
     },
+
     externals: {
-        react: {
-            commonjs: 'react',
-            commonjs2: 'react',
-            amd: 'React',
-            root: 'React',
-        },
-        'react-dom': {
-            commonjs: 'react-dom',
-            commonjs2: 'react-dom',
-            amd: 'ReactDOM',
-            root: 'ReactDOM',
-        },
+        react: 'commonjs react',
+        'react-dom': 'commonjs react-dom',
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: './index.html',
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: './public/index.html',
+        //     filename: './index.html',
+        // }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',

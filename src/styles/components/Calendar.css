@@ -16,6 +16,7 @@
     font-size: var(--placeholder);
     padding: var(--space);
     padding-left: 12px;
+    cursor: pointer;
 }
 
 .calendar__picker {
@@ -38,6 +39,7 @@
 }
 
 .calendar__picker--items {
+    position: relative;
     width: 100%;
     transform-style: preserve-3d;
 }

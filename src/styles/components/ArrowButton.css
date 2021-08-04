@@ -1,0 +1,33 @@
+.picker__items-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.picker__items-btn:hover {
+    cursor: pointer;
+    background: var(--color-gray);
+    border-radius: 50%;
+}
+
+.picker__items--arrow {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    position: absolute;
+    left: calc(50% - 10px);
+}
+.picker__items--arrow:hover {
+    cursor: pointer;
+    background: rgba(185, 185, 185, 0.51);
+    border-radius: 50%;
+}
+
+.arrow-up {
+    top: -6px;
+}
+
+.arrow-down {
+    transform: rotate(180deg);
+    bottom: -8px;
+}

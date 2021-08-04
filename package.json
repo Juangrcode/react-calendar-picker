@@ -1,8 +1,8 @@
 {
     "name": "react-calendar-picker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "react calendar with scroll",
-    "main": "dist/index.js",
+    "main": "./dist/bundle.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "webpack serve --config webpack.config.dev.js",
@@ -32,6 +32,7 @@
         "@types/webpack": "^5.28.0",
         "babel-loader": "^8.2.2",
         "css-loader": "^6.2.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
         "html-loader": "^2.1.2",
         "html-webpack-plugin": "^5.3.2",
         "mini-css-extract-plugin": "^2.1.0",

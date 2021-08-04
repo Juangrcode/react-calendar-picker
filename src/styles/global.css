@@ -80,3 +80,8 @@ small {
 input::placeholder {
     font-size: var(--placeholder);
 }
+
+button {
+    background: none;
+    border: none;
+}

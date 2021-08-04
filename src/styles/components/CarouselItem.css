@@ -1,8 +1,6 @@
 .carousel-item {
     text-align: center;
-    padding: 10px 0;
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+    padding: 5px 0;
 
     margin-left: 1rem;
 }
