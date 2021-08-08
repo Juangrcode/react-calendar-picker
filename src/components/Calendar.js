@@ -12,7 +12,7 @@ import '../styles/components/Calendar.css';
 import '../styles/global.css';
 import { useCallback } from 'react';
 
-const Calendar = ({ state, setState, arrYears, arrMonths, arrDays, state }) => {
+const Calendar = ({ state, setState, arrYears, arrMonths, arrDays }) => {
     const dataYears = arrYears || Object.values(years);
     const dataMonths = arrMonths || Object.values(months);
     const dataDays = arrDays || Object.values(days);
