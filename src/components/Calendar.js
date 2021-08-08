@@ -71,7 +71,11 @@ const Calendar = ({ text = 'Fecha de nacimiento *', setState, arrYears, arrMonth
     return (
         <div className="calendar">
             <div className="calendar__container">
-                <button className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'}`} onClick={handleClick}>
+                <button
+                    type="button"
+                    className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'}`}
+                    onClick={handleClick}
+                >
                     {stateCalendarValue}
                     <svg width="11" height="8" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.99999 0.999999L6.98999 7.67456L12.98 1" stroke="#000000" strokeWidth="2" strokeMiterlimit="10" />
