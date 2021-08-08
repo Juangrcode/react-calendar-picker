@@ -6,7 +6,7 @@ import Calendar from './components/Calendar';
 const App = () => {
     const [state, setState] = useState({ year: '', month: '', day: '' });
     console.log({ state });
-    return <Calendar setState={setState} />;
+    return <Calendar setState={setState} state={state} />;
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));

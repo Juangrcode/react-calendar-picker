@@ -10,20 +10,20 @@ import stringToDate from '../utils/stringToDate';
 
 import '../styles/components/Calendar.css';
 import '../styles/global.css';
+import { useCallback } from 'react';
 
-const Calendar = ({ text = 'Fecha de nacimiento *', setState, arrYears, arrMonths, arrDays }) => {
+const Calendar = ({ state, setState, arrYears, arrMonths, arrDays, state }) => {
     const dataYears = arrYears || Object.values(years);
     const dataMonths = arrMonths || Object.values(months);
     const dataDays = arrDays || Object.values(days);
 
     const [stateCalendar, setStateCalendar] = useState(false);
-    const [stateCalendarValue, setStateCalendarValue] = useState(text);
 
     const [stateYear, setStateYear] = useState(1);
     const [stateMonth, setStateMonth] = useState(1);
     const [stateDay, setStateDay] = useState(1);
 
-    const [stateDataYear, setStateDataYear] = useState(1);
+    const [stateDataYear, setStateDataYear] = useState(dataYears[1]);
     const [stateDataMonth, setStateDataMonth] = useState(1);
     const [stateDataDay, setStateDataDay] = useState(1);
 
@@ -56,17 +56,13 @@ const Calendar = ({ text = 'Fecha de nacimiento *', setState, arrYears, arrMonth
     };
 
     useEffect(() => {
-        if (stateDataYear !== 1) {
-            setStateCalendarValue(
-                stringToDate({
-                    year: stateDataYear,
-                    month: stateDataMonth,
-                    day: stateDataDay,
-                })
-            );
-            setState(stateCalendarValue);
-        }
-    }, [stateDataYear, stateDataMonth, stateDataDay]);
+        const date = stringToDate({
+            year: stateDataYear,
+            month: stateDataMonth,
+            day: stateDataDay,
+        });
+        if (stateDataYear !== dataYears[1]) setState(date);
+    }, [stateDataYear, stateDataMonth, stateDataDay, state]);
 
     return (
         <div className="calendar">
@@ -76,7 +72,11 @@ const Calendar = ({ text = 'Fecha de nacimiento *', setState, arrYears, arrMonth
                     className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'}`}
                     onClick={handleClick}
                 >
-                    {stateCalendarValue}
+                    {stringToDate({
+                        year: stateDataYear,
+                        month: stateDataMonth,
+                        day: stateDataDay,
+                    })}
                     <svg width="11" height="8" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.99999 0.999999L6.98999 7.67456L12.98 1" stroke="#000000" strokeWidth="2" strokeMiterlimit="10" />
                     </svg>
