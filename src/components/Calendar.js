@@ -12,12 +12,10 @@ import '../styles/components/Calendar.css';
 import '../styles/global.css';
 import { useCallback } from 'react';
 
-const Calendar = ({ state, setState, arrYears, arrMonths, arrDays }) => {
+const Calendar = ({ setState, arrYears, arrMonths, arrDays, handleClick, stateCalendar, text, error }) => {
     const dataYears = arrYears || Object.values(years);
     const dataMonths = arrMonths || Object.values(months);
     const dataDays = arrDays || Object.values(days);
-
-    const [stateCalendar, setStateCalendar] = useState(false);
 
     const [stateYear, setStateYear] = useState(1);
     const [stateMonth, setStateMonth] = useState(1);
@@ -51,32 +49,33 @@ const Calendar = ({ state, setState, arrYears, arrMonths, arrDays }) => {
         setStateDay((day) => day - 1);
     };
 
-    const handleClick = () => {
-        setStateCalendar((prev) => !prev);
-    };
-
     useEffect(() => {
         const date = stringToDate({
             year: stateDataYear,
             month: stateDataMonth,
             day: stateDataDay,
         });
-        if (stateDataYear !== dataYears[1]) setState(date);
-    }, [stateDataYear, stateDataMonth, stateDataDay, state]);
+        setState(date);
+    }, [stateDataYear, stateDataMonth, stateDataDay]);
 
     return (
         <div className="calendar">
             <div className="calendar__container">
                 <button
                     type="button"
-                    className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'}`}
+                    className={`calendar__select ${stateDataYear !== 1 && 'calendar__select--focus'} ${error && 'calendar-error'}`}
                     onClick={handleClick}
                 >
-                    {stringToDate({
-                        year: stateDataYear,
-                        month: stateDataMonth,
-                        day: stateDataDay,
-                    })}
+                    {stateDataYear === dataYears[1] && stateDataMonth === 1 && stateDataDay === 1 ? (
+                        <p>{text}</p>
+                    ) : (
+                        stringToDate({
+                            year: stateDataYear,
+                            month: stateDataMonth,
+                            day: stateDataDay,
+                        })
+                    )}
+
                     <svg width="11" height="8" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.99999 0.999999L6.98999 7.67456L12.98 1" stroke="#000000" strokeWidth="2" strokeMiterlimit="10" />
                     </svg>
